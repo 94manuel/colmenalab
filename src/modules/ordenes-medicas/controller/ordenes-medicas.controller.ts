@@ -17,21 +17,21 @@ export class OrdenesMedicasController {
     findAll() {
         return this.ordenesMedicasService.findAll();
     }
-/*
+
     @Get(':id')
     findOne(@Param('id') id: string) {
         return this.ordenesMedicasService.findOne(+id);
     }
-*/
+
     @Put(':id')
     @UsePipes(new ValidationPipe({ whitelist: true, transform: true }))
     update(@Param('id') id: string, @Body() updateOrdenMedicaDto: UpdateOrdenMedicaDto) {
         return this.ordenesMedicasService.update(+id, updateOrdenMedicaDto);
     }
-/*
+
     @Delete(':id')
     remove(@Param('id') id: string) {
         return this.ordenesMedicasService.remove(+id);
     }
-    */
+    
 }

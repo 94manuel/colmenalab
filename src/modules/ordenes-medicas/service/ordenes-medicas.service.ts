@@ -22,15 +22,18 @@ export class OrdenesMedicasService {
   async findAll(): Promise<OrdenMedica[]> {
     return this.ordenMedicaRepository.find({ relations: ['citaMedica'] });
   }
-/*
+
   async findOne(id: number): Promise<OrdenMedica> {
-    const ordenMedica = await this.ordenMedicaRepository.findOne(id, { relations: ['citaMedica'] });
+    const ordenMedica = await this.ordenMedicaRepository.findOne({
+      where: { id },
+      relations: ['citaMedica']
+    });
     if (!ordenMedica) {
       throw new NotFoundException(`Orden médica con ID "${id}" no encontrada`);
     }
     return ordenMedica;
   }
-*/
+
   async update(id: number, updateOrdenMedicaDto: UpdateOrdenMedicaDto): Promise<OrdenMedica> {
     const ordenMedica = await this.ordenMedicaRepository.preload({
       id: id,
@@ -41,10 +44,10 @@ export class OrdenesMedicasService {
     }
     return this.ordenMedicaRepository.save(ordenMedica);
   }
-/*
+
   async remove(id: number): Promise<void> {
     const ordenMedica = await this.findOne(id);
     await this.ordenMedicaRepository.remove(ordenMedica);
   }
-  */
+  
 }
