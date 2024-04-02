@@ -47,6 +47,109 @@ Para probar la API, puedes importar la colección de Postman proporcionada con e
 - [TypeORM](https://typeorm.io/) - ORM utilizado
 - [PostgreSQL](https://www.postgresql.org/) - Base de datos
 
+### Microservicio de Pacientes
+
+Este microservicio gestiona toda la información relacionada con los pacientes.
+
+- **Crear un Paciente**
+
+  - Método: `POST`
+  - URL: `http://localhost:3000/pacientes`
+  - Body (JSON):
+    ```json
+    {
+  	"patientId": "12347",
+  	"firstName": "John",
+  	"lastName": "Doe",
+  	"email": "john.doeexample.com",
+  	"phone": "1234567890",
+  	"address": "123 Main St",
+  	"city": "Anytown",
+  	"professionalCard": "PRO1234568",
+  	"admissionDate": "2022-01-01"
+}
+    ```
+
+- **Obtener todos los Pacientes**
+
+  - Método: `GET`
+  - URL: `http://localhost:3000/pacientes`
+
+- **Actualizar un Paciente**
+
+  - Método: `PUT`
+  - URL: `http://localhost:3000/pacientes/{id}`
+  - Body (JSON):
+    ```json
+    {
+
+  	"patientId": "12347",
+  	"firstName": "John",
+  	"lastName": "Doe",
+  	"email": "john.doeexample.com",
+  	"phone": "1234567890",
+  	"address": "123 Main St",
+  	"city": "Anytown",
+  	"professionalCard": "PRO1234568",
+  	"admissionDate": "2022-01-01"
+}
+    ```
+
+- **Eliminar un Paciente**
+
+  - Método: `DELETE`
+  - URL: `http://localhost:3000/pacientes/{id}`
+
+### Microservicio de Médicos
+
+Este microservicio se encarga de gestionar los médicos.
+
+- **Crear un Médico**
+
+  - Método: `POST`
+  - URL: `http://localhost:3000/medicos`
+  - Body (JSON):
+    ```json
+    {
+  	"firstName": "John",
+  	"lastName": "Doe",
+  	"email": "john.doeexample.com",
+  	"phone": "1234567890",
+  	"address": "123 Main St",
+  	"city": "Anytown",
+  	"professionalCard": "PRO1234568",
+  	"admissionDate": "2022-01-01"
+}
+    ```
+
+- **Obtener todos los Médicos**
+
+  - Método: `GET`
+  - URL: `http://localhost:3000/medicos`
+
+- **Actualizar un Médico**
+
+  - Método: `PUT`
+  - URL: `http://localhost:3000/medicos/{id}`
+  - Body (JSON):
+    ```json
+    {
+  	"firstName": "John",
+  	"lastName": "Doe",
+  	"email": "john.doeexample.com",
+  	"phone": "1234567890",
+  	"address": "123 Main St",
+  	"city": "Anytown",
+  	"professionalCard": "PRO1234568",
+  	"admissionDate": "2022-01-01"
+}
+    ```
+
+- **Eliminar un Médico**
+
+  - Método: `DELETE`
+  - URL: `http://localhost:3000/medicos/{id}`
+
 ## Uso de los Microservicios
 
 Este proyecto consta de varios microservicios, cada uno responsable de diferentes aspectos de la aplicación. A continuación, se proporcionan detalles sobre cómo interactuar con cada microservicio utilizando Postman.
