@@ -46,3 +46,96 @@ Para probar la API, puedes importar la colección de Postman proporcionada con e
 - [NestJS](https://nestjs.com/) - El framework web usado
 - [TypeORM](https://typeorm.io/) - ORM utilizado
 - [PostgreSQL](https://www.postgresql.org/) - Base de datos
+
+## Uso de los Microservicios
+
+Este proyecto consta de varios microservicios, cada uno responsable de diferentes aspectos de la aplicación. A continuación, se proporcionan detalles sobre cómo interactuar con cada microservicio utilizando Postman.
+
+### Microservicio de Medicamentos
+
+Este microservicio gestiona todo lo relacionado con los medicamentos.
+
+- **Crear un Medicamento**
+
+  - Método: `POST`
+  - URL: `http://localhost:3000/medicamentos`
+  - Body (JSON):
+    ```json
+    {
+      "nombre": "Ibuprofeno",
+      "descripcion": "Antiinflamatorio no esteroideo",
+      "enfermedades": "Dolor, fiebre, inflamación"
+    }
+    ```
+
+- **Obtener todos los Medicamentos**
+
+  - Método: `GET`
+  - URL: `http://localhost:3000/medicamentos`
+
+- **Actualizar un Medicamento**
+
+  - Método: `PUT`
+  - URL: `http://localhost:3000/medicamentos/{id}`
+  - Body (JSON):
+    ```json
+    {
+      "nombre": "Ibuprofeno Modificado",
+      "descripcion": "Antiinflamatorio modificado",
+      "enfermedades": "Dolor de cabeza"
+    }
+    ```
+
+- **Eliminar un Medicamento**
+
+  - Método: `DELETE`
+  - URL: `http://localhost:3000/medicamentos/{id}`
+
+### Microservicio de Órdenes Médicas
+
+Este microservicio se encarga de la gestión de las órdenes médicas.
+
+- **Crear una Orden Médica**
+
+  - Método: `POST`
+  - URL: `http://localhost:3000/ordenes-medicas`
+  - Body (JSON):
+    ```json
+    {
+      "citaMedicaId": 1,
+      "descripcion": "Tomar medicamento cada 8 horas",
+      "fechaCaducidad": "2024-12-31",
+      "especialidad": "General",
+      "medicamentoIds": [1, 2]
+    }
+    ```
+
+- **Obtener todas las Órdenes Médicas**
+
+  - Método: `GET`
+  - URL: `http://localhost:3000/ordenes-medicas`
+
+- **Actualizar una Orden Médica**
+
+  - Método: `PUT`
+  - URL: `http://localhost:3000/ordenes-medicas/{id}`
+  - Body (JSON):
+    ```json
+    {
+      "descripcion": "Cambiar medicamento a cada 12 horas",
+      "medicamentoIds": [3]
+    }
+    ```
+
+- **Eliminar una Orden Médica**
+
+  - Método: `DELETE`
+  - URL: `http://localhost:3000/ordenes-medicas/{id}`
+
+...
+
+### Notas Adicionales
+
+- Asegúrate de reemplazar `{id}` en las URLs con el ID real del recurso que deseas actualizar o eliminar.
+- Si tu API requiere autenticación, incluye el token de autenticación en el header `Authorization` de tus solicitudes en Postman.
+- Adapta los puertos y las rutas según la configuración específica de tu proyecto.
